@@ -11,6 +11,8 @@ int main( void ){
 
 	}
 
+	fprintf( stdout, "the_int = %d\n", the_int );
+
 	return 0;
 
 }
