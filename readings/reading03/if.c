@@ -6,7 +6,7 @@ int main( void ){
 	int y = 23;
 
 	fprintf( stdout, "%d %x %p\n", x, x, &x );
-	fprintf( stdout, "%d %x %p\n", y, x, &y );
+	fprintf( stdout, "%d %x %p\n", y, y, &y );
 
 	if( x == y  ){
 		fprintf( stdout, "The values are equal\n" );
@@ -17,7 +17,6 @@ int main( void ){
 	}
 	else
 		fprintf( stdout, "Neither of our conditions were met.\n" );
-
 
 	return 0;
 }
