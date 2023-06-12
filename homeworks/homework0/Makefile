@@ -38,17 +38,9 @@ specifiers.o: specifiers.c
 	$(CC) $(CFLAGS) -c specifiers.c
 
 
-# Compilation for printing Hello World with a string specifier
-# Command: make specifiers
-helloSpec: helloSpec.o
-	$(CC) $(CFLAGS) -o helloSpec helloSpec.o
-
-helloSpec.o: helloSpec.c
-	$(CC) $(CFLAGS) -c helloSpec.c
-
 # Make all
-all: nothing hello specifiers helloSpec
+all: nothing hello specifiers
 
 # Make clean
 clean:
-	rm -rf *.o *.swp nothing hello specifiers helloSpec
+	rm -rf *.o *.swp nothing hello specifiers
