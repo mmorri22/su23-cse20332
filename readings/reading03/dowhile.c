@@ -9,6 +9,8 @@ int main(){
       ++the_int;
   }while( the_int < 5 );
 
+	fprintf( stdout, "%d\n", the_int );
+
   return 0;
 
 }
