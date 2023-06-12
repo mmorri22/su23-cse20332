@@ -4,19 +4,19 @@ int main( void ){
 
 	int x = 22;
 	int y = 23;
-	
+
 	fprintf( stdout, "%d %x %p\n", x, x, &x );
 	fprintf( stdout, "%d %x %p\n", y, x, &y );
 
 	if( x == y  ){
-		fprintf( stdout, "We made it!\n" );
+		fprintf( stdout, "The values are equal\n" );
 		x++;
 	}
 	else if( y - x == 1 ){
-		fprintf( stdout, "we kind made it?\n" );
-	}	
+		fprintf( stdout, "y is one greater than x\n" );
+	}
 	else
-		fprintf( stdout, "We didn't make it :(\n" );
+		fprintf( stdout, "Neither of our conditions were met.\n" );
 
 
 	return 0;
