@@ -1,22 +1,13 @@
 #include <stdio.h>
 
-int main( void ){
+int main(void){
 
-	int x = 22;
-	int y = 23;
+	int int_a = -23;
+	int int_b = 23;
 
-	fprintf( stdout, "%d %x %p\n", x, x, &x );
-	fprintf( stdout, "%d %x %p\n", y, y, &y );
-
-	if( x == y  ){
-		fprintf( stdout, "The values are equal\n" );
-		x++;
-	}
-	else if( y - x == 1 ){
-		fprintf( stdout, "y is one greater than x\n" );
-	}
-	else
-		fprintf( stdout, "Neither of our conditions were met.\n" );
+	fprintf( stdout, "int_a %d %x %p\n", int_a, int_a, &int_a );
+	fprintf( stdout, "int_b %d %x %p\n", int_b, int_b, &int_b );
 
 	return 0;
 }
+
