@@ -36,9 +36,21 @@ double_comp: $(double_comp_objs)
 	./double_comp
 
 
+# Create the Float Compile Object
+float_compile.o: float_compile.c
+	$(CC) $(CFLAGS) -c float_compile.c
+
+# Float Compile Objects
+float_compile_objs := float_compile.o
+
+# Float Compile Executable
+float_compile: $(float_compile_objs)
+	$(CC) $(CFLAGS) -o float_compile $(float_compile_objs)
+	./float_compile
+
 
 # Executable Names
-executable_names := if_else double_comp
+executable_names := if_else double_comp float_compile
 
 # Make all
 all: $(executable_names)
