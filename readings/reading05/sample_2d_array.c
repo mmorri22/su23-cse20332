@@ -5,7 +5,7 @@
 #define COLS 3
 
 /* Function declarations */
-void print_array_info( int sample_array[][COLS] );
+void print_array_info( int sample_array[ROWS][COLS] );
 
 int main( void ){
 
@@ -22,7 +22,7 @@ int main( void ){
 
 }
 
-void print_array_info( int sample_array[][COLS] ){
+void print_array_info( int sample_array[ROWS][COLS] ){
 
   /* First, we will print the base address of the array */
   fprintf( stdout, "Base address in func = %p\n", sample_array );
@@ -30,7 +30,7 @@ void print_array_info( int sample_array[][COLS] ){
   /* First, we will print the base array information */
   int iter;
   for( iter = 0; iter < ROWS; ++iter ){
-    fprintf( stdout, "sample_array[%d] = %p\n", iter, &sample_array[iter] );
+    fprintf( stdout, "sample_array[%d] = %p\n", iter, sample_array[iter] );
   }
 
   /* Now, we will print the address and data */
