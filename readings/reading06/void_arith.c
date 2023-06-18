@@ -3,13 +3,20 @@
 
 int main(void){
 
+	/* Allocate the memory */
 	long unsigned int size = 13 * sizeof(char);
 	void* hello = malloc( size );
 
-	fprintf( stdout, "Working Memory: %p\n", &hello );
-	fprintf( stdout, "Long-term Memory: %p\n", hello );
-	fprintf( stdout, "address of hello[2] = %p\n", hello + 2*sizeof(char) );
+	/* Printing the base address */
+	fprintf( stdout, "Working Memory (Register)     : %p\n", &hello );
+	fprintf( stdout, "Long-term Memory (Data Memory): %p\n", hello );
 
+	long unsigned int iter;
+	for( iter = 0; iter < size; ++iter ){
+		fprintf( stdout, "address of hello[%ld] = %p\n", iter, hello + iter*sizeof(char) );
+	}
+
+	/* Free the memory */
 	free( hello );
 
 	return 0;
