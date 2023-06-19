@@ -30,27 +30,27 @@ ptr_trace.o: ptr_trace.c
 # Trace Objects
 ptr_trace_objs := ptr_trace.o
 
-# If/Else Executable and Run
+# Trace Executable and Run
 ptr_trace: $(ptr_trace_objs)
 	$(CC) $(CFLAGS) -o ptr_trace $(ptr_trace_objs)
 	./ptr_trace
 
 
-# Create the Float Compile Object
-float_compile.o: float_compile.c
-	$(CC) $(CFLAGS) -c float_compile.c
+# Create the fscanf Object
+fscanf.o: fscanf.c
+	$(CC) $(CFLAGS) -c fscanf.c
 
 # Float Compile Objects
-float_compile_objs := float_compile.o
+fscanf_objs := fscanf.o
 
 # Float Compile Executable
-float_compile: $(float_compile_objs)
-	$(CC) $(CFLAGS) -o float_compile $(float_compile_objs)
-	./float_compile
+fscanf: $(fscanf_objs)
+	$(CC) $(CFLAGS) -o fscanf $(fscanf_objs)
+	./fscanf
 
 
 # Executable Names
-executable_names := hours ptr_trace
+executable_names := hours ptr_trace fscanf
 
 # Make all
 all: $(executable_names)
