@@ -49,8 +49,21 @@ fscanf: $(fscanf_objs)
 	./fscanf
 
 
+# Create the Insert Sort Object
+insert_sort.o: insert_sort.c
+	$(CC) $(CFLAGS) -c insert_sort.c
+
+# Float Compile Objects
+insert_sort_objs := insert_sort.o
+
+# Float Compile Executable
+insert_sort: $(insert_sort_objs)
+	$(CC) $(CFLAGS) -o insert_sort $(insert_sort_objs)
+	./insert_sort
+
+
 # Executable Names
-executable_names := hours ptr_trace fscanf
+executable_names := hours ptr_trace fscanf insert_sort
 
 # Make all
 all: $(executable_names)
