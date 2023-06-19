@@ -14,26 +14,26 @@ CFLAGS := -std=c11 $(FLAGS)
 hours.o: hours.c
 	$(CC) $(CFLAGS) -c hours.c
 
-# If/Else Objects
+# Hours Objects
 hours_objs := hours.o
 
-# If/Else Executable and Run
+# Hours Executable and Run
 hours: $(hours_objs)
 	$(CC) $(CFLAGS) -o hours $(hours_objs)
 	./hours
 
 
-# Create the Double Comp Object
-double_comp.o: double_comp.c
-	$(CC) $(CFLAGS) -c double_comp.c
+# Create the Trace Object
+ptr_trace.o: ptr_trace.c
+	$(CC) $(CFLAGS) -c ptr_trace.c
 
-# Double Comp Objects
-double_comp_objs := double_comp.o
+# Trace Objects
+ptr_trace_objs := ptr_trace.o
 
 # If/Else Executable and Run
-double_comp: $(double_comp_objs)
-	$(CC) $(CFLAGS) -o double_comp $(double_comp_objs)
-	./double_comp
+ptr_trace: $(ptr_trace_objs)
+	$(CC) $(CFLAGS) -o ptr_trace $(ptr_trace_objs)
+	./ptr_trace
 
 
 # Create the Float Compile Object
@@ -50,7 +50,7 @@ float_compile: $(float_compile_objs)
 
 
 # Executable Names
-executable_names := hours
+executable_names := hours ptr_trace
 
 # Make all
 all: $(executable_names)
