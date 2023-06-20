@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>  // For clrscr();
+#include <unistd.h> // For usleep
 
 #define ROWS 11
 #define COLS 11
@@ -36,7 +38,7 @@ int main(){
     fprintf(stdout, "The maze was not solvable from (%d, %d)\n", start_x, start_y );
   }
   else{
-    fprintf(stdout, "The maze was solved!");
+    fprintf(stdout, "The maze was solved!\n");
     print_maze( the_maze );
   }
 
@@ -44,6 +46,9 @@ int main(){
 }
 
 void print_maze( char the_maze[ROWS][COLS] ){
+
+  sleep( 1 );
+  system("clear");
 
   int row_iter, col_iter;
   for(row_iter = 0; row_iter < ROWS; ++row_iter){
@@ -60,7 +65,7 @@ void print_maze( char the_maze[ROWS][COLS] ){
 int depth_first_search( char the_maze[ROWS][COLS], int curr_row, int curr_col ){
 
   if( the_maze[curr_row][curr_col] == 'F' ){
-    fprintf( stdout, "Solved?\n" );
+    fprintf( stdout, "Solved!\n" );
     return 1;
   }
 
@@ -71,31 +76,26 @@ int depth_first_search( char the_maze[ROWS][COLS], int curr_row, int curr_col ){
   int check = 0;
 
   /* First, check left */
-  fprintf( stdout, "%d %d %d '%c'\n", check, curr_row, curr_col-1, the_maze[curr_row][curr_col-1] );
   if( check == 0 && (the_maze[curr_row][curr_col-1] == ' ' || the_maze[curr_row][curr_col-1] == 'F')){
       check = depth_first_search( the_maze, curr_row, curr_col-1);
   }
 
-  /* Next, check up */
-  fprintf( stdout, "%d %d %d '%c'\n", check, curr_row-1, curr_col, the_maze[curr_row-1][curr_col] );
-  if( check == 0 && (the_maze[curr_row-1][curr_col] == ' ' || the_maze[curr_row-1][curr_col] == 'F')){
-      check = depth_first_search( the_maze, curr_row-1, curr_col);
-  }
-
-  /* Next, check right */
-  fprintf( stdout, "%d %d %d '%c'\n", check, curr_row, curr_col+1, the_maze[curr_row][curr_col+1] );
-  if( check == 0 && (the_maze[curr_row][curr_col+1] == ' ' || the_maze[curr_row][curr_col+1] == 'F')){
-      check = depth_first_search( the_maze, curr_row, curr_col+1);
-  }
-
   /* Finally, check down */
-  fprintf( stdout, "%d %d %d '%c'\n", check, curr_row+1, curr_col, the_maze[curr_row+1][curr_col] );
   if( check == 0 && (the_maze[curr_row+1][curr_col] == ' ' || the_maze[curr_row+1][curr_col] == 'F')){
       check = depth_first_search( the_maze, curr_row+1, curr_col );
   }
 
+  /* Next, check right */
+  if( check == 0 && (the_maze[curr_row][curr_col+1] == ' ' || the_maze[curr_row][curr_col+1] == 'F')){
+      check = depth_first_search( the_maze, curr_row, curr_col+1);
+  }
+
+  /* Next, check up */
+  if( check == 0 && (the_maze[curr_row-1][curr_col] == ' ' || the_maze[curr_row-1][curr_col] == 'F')){
+      check = depth_first_search( the_maze, curr_row-1, curr_col);
+  }
+
   /* If check is 0, reset the char */
-  fprintf( stdout, "Got here! %d %d %d\n", check, curr_row, curr_col );
   if( check == 0 ){
     the_maze[curr_row][curr_col] = ' ';
     print_maze( the_maze );

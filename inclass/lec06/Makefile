@@ -1,7 +1,7 @@
 # Author: Prof. Matthew Morrison
 # E-mail: matt.morrison@nd.edu
 #
-# This is the Makefile for the Lecture 5 Example.
+# This is the Makefile for the Lecture 6 Example.
 
 # gcc is for the compiler for C
 CC := gcc
@@ -75,8 +75,21 @@ maze: $(maze_objs)
 	./maze
 
 
+# Create the Maze Demo Object
+maze_demo.o: maze_demo.c
+	$(CC) $(CFLAGS) -c maze_demo.c
+
+# Maze Demo Objects
+maze_demo_objs := maze_demo.o
+
+# Maze Executable
+maze_demo: $(maze_demo_objs)
+	$(CC) $(CFLAGS) -o maze_demo $(maze_demo_objs)
+	./maze_demo
+
+
 # Executable Names
-executable_names := trace trace_ptr fib fib_memo maze
+executable_names := trace trace_ptr fib fib_memo maze maze_demo
 
 # Make all
 all: $(executable_names)

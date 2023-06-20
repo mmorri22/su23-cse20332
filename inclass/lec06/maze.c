@@ -37,7 +37,7 @@ int main(){
     fprintf(stdout, "The maze was not solvable from (%d, %d)\n", start_x, start_y );
   }
   else{
-    fprintf(stdout, "The maze was solved!");
+    fprintf(stdout, "The maze was solved!\n");
     print_maze( the_maze );
   }
 
