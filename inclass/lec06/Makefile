@@ -62,21 +62,21 @@ fib_memo: $(fib_memo_objs)
 	./fib_memo
 
 
-# Create the fscanf Object
-fscanf.o: fscanf.c
-	$(CC) $(CFLAGS) -c fscanf.c
+# Create the Maze Object
+maze.o: maze.c
+	$(CC) $(CFLAGS) -c maze.c
 
-# Float Compile Objects
-fscanf_objs := fscanf.o
+# Maze Objects
+maze_objs := maze.o
 
-# Float Compile Executable
-fscanf: $(fscanf_objs)
-	$(CC) $(CFLAGS) -o fscanf $(fscanf_objs)
-	./fscanf
+# Maze Executable
+maze: $(maze_objs)
+	$(CC) $(CFLAGS) -o maze $(maze_objs)
+	./maze
 
 
 # Executable Names
-executable_names := trace trace_ptr fib fib_memo
+executable_names := trace trace_ptr fib fib_memo maze
 
 # Make all
 all: $(executable_names)
