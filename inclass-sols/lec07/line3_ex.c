@@ -29,7 +29,7 @@ int main( void ){
   long unsigned int iter;
   for( iter = 0; iter < array_len; ++iter ){
 
-    fprintf( stdout, "%c", *( (char *)(line3 + iter*sizeof(char)) ) );
+    fprintf( stdout, "%c", *( (int *)(line3 + iter) ) );
 
   }
 
