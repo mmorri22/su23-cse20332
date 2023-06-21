@@ -48,20 +48,26 @@ void fibonacci( )
 {
 
 	/* An array of NMAX unsigned ints stored on the Heap */
-	int* results_buffer = (int *)malloc( NMAX * sizeof(int) );
+	int results_buffer[NMAX];
 
 	/* First array element  */
 	results_buffer[0] = 1;
+	int first_val = 1;
 
 	/* Second array element */
 	results_buffer[1] = 1;
+	int second_val = 1;
 
 	long unsigned int iter;
 	for (iter = 2; iter < NMAX; iter++) {
 
-		results_buffer[ iter ] = results_buffer[ iter-2 ] + results_buffer[ iter - 1 ];
+		int third_val = first_val + second_val;
+
+		results_buffer[ iter ] = third_val;
+
+		first_val = second_val;
+		second_val = third_val;
 
 	}
 
-	free( results_buffer );
 }

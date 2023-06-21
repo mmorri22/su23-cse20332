@@ -23,86 +23,52 @@ stat_dyn_addr: $(stat_dyn_addr_objs)
 	valgrind --leak-check=full ./stat_dyn_addr
 
 
-# Create the Static Dynamic Address Object
+# Create the Static Dynamic Function Object
 stat_dyn_func.o: stat_dyn_func.c
 	$(CC) $(CFLAGS) -c stat_dyn_func.c
 
-# Static Dynamic Address Objects
+# Static Dynamic Function Objects
 stat_dyn_func_objs := stat_dyn_func.o
 
-# Static Dynamic Address Executable
+# Static Dynamic Function Executable
 stat_dyn_func: $(stat_dyn_func_objs)
 	$(CC) $(CFLAGS) -o stat_dyn_func $(stat_dyn_func_objs)
 	valgrind --leak-check=full ./stat_dyn_func
 
 
-# Create the Trace Pointer Object
-trace_ptr.o: trace_ptr.c
-	$(CC) $(CFLAGS) -c trace_ptr.c
+# Create the Dynamic Array Run Time Object
+dyn_array_time.o: dyn_array_time.c
+	$(CC) $(CFLAGS) -c dyn_array_time.c
 
-# Trace Pointer Objects
-trace_ptr_objs := trace_ptr.o
+# Dynamic Array Run Time Objects
+dyn_array_time_objs := dyn_array_time.o
 
-# Float Compile Executable
-trace_ptr: $(trace_ptr_objs)
-	$(CC) $(CFLAGS) -o trace_ptr $(trace_ptr_objs)
-	./trace_ptr
-
-
-# Create the Fibonacci Object
-fib.o: fib.c
-	$(CC) $(CFLAGS) -c fib.c
-
-# Fibonacci Objects
-fib_objs := fib.o
-
-# Fibonacci Executable and Run
-fib: $(fib_objs)
-	$(CC) $(CFLAGS) -o fib $(fib_objs)
-	./fib
+# Dynamic Array Run Time Executable
+dyn_array_time: $(dyn_array_time_objs)
+	$(CC) $(CFLAGS) -o dyn_array_time $(dyn_array_time_objs)
+	./dyn_array_time
 
 
-# Create the Fib Memo
-fib_memo.o: fib_memo.c
-	$(CC) $(CFLAGS) -c fib_memo.c
+# Inefficient Dynamic Array Compilation
+dyn_array_time_ineff:
+	gcc dyn_array_time.c -o dyn_array_time
+	./dyn_array_time
 
-# Trace Objects
-fib_memo_objs := fib_memo.o
+# Simple Stat Array Compiler that is *not* optimized
+stat_array_time:
+	gcc stat_array_time.c -o stat_array_time
+	./stat_array_time
 
-# Trace Executable and Run
-fib_memo: $(fib_memo_objs)
-	$(CC) $(CFLAGS) -o fib_memo $(fib_memo_objs)
-	./fib_memo
+# Simple Stat Array Compiler that is *not* optimized
+stat_reg_time:
+	gcc stat_reg_time.c -o stat_reg_time
+	./stat_reg_time
 
-
-# Create the Maze Object
-maze.o: maze.c
-	$(CC) $(CFLAGS) -c maze.c
-
-# Maze Objects
-maze_objs := maze.o
-
-# Maze Executable
-maze: $(maze_objs)
-	$(CC) $(CFLAGS) -o maze $(maze_objs)
-	./maze
-
-
-# Create the Maze Demo Object
-maze_demo.o: maze_demo.c
-	$(CC) $(CFLAGS) -c maze_demo.c
-
-# Maze Demo Objects
-maze_demo_objs := maze_demo.o
-
-# Maze Executable
-maze_demo: $(maze_demo_objs)
-	$(CC) $(CFLAGS) -o maze_demo $(maze_demo_objs)
-	./maze_demo
-
+# Make all
+time_comp: clean dyn_array_time_ineff stat_array_time stat_reg_time
 
 # Executable Names
-executable_names := stat_dyn_addr
+executable_names := stat_dyn_addr stat_dyn_func dyn_array_time stat_array_time stat_reg_time
 
 # Make all
 all: $(executable_names)

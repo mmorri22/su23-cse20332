@@ -48,7 +48,7 @@ void fibonacci( )
 {
 
 	/* An array of NMAX unsigned ints stored on the Heap */
-	int* results_buffer = (int *)malloc( NMAX * sizeof(int) );
+	int results_buffer[NMAX];
 
 	/* First array element  */
 	results_buffer[0] = 1;
@@ -63,5 +63,4 @@ void fibonacci( )
 
 	}
 
-	free( results_buffer );
 }
