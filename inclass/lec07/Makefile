@@ -23,6 +23,19 @@ stat_dyn_addr: $(stat_dyn_addr_objs)
 	valgrind --leak-check=full ./stat_dyn_addr
 
 
+# Create the Static Dynamic Address Object
+stat_dyn_func.o: stat_dyn_func.c
+	$(CC) $(CFLAGS) -c stat_dyn_func.c
+
+# Static Dynamic Address Objects
+stat_dyn_func_objs := stat_dyn_func.o
+
+# Static Dynamic Address Executable
+stat_dyn_func: $(stat_dyn_func_objs)
+	$(CC) $(CFLAGS) -o stat_dyn_func $(stat_dyn_func_objs)
+	valgrind --leak-check=full ./stat_dyn_func
+
+
 # Create the Trace Pointer Object
 trace_ptr.o: trace_ptr.c
 	$(CC) $(CFLAGS) -c trace_ptr.c
