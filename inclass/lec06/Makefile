@@ -10,6 +10,18 @@ CC := gcc
 FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror -lm
 CFLAGS := -std=c11 $(FLAGS)
 
+# Create the Void Recast Object
+void_recast.o: void_recast.c
+	$(CC) $(CFLAGS) -c void_recast.c
+
+# Float Compile Objects
+void_recast_objs := void_recast.o
+
+# Float Compile Executable
+void_recast: $(void_recast_objs)
+	$(CC) $(CFLAGS) -o void_recast $(void_recast_objs)
+	./void_recast
+
 # Create the Trace Object
 trace.o: trace.c
 	$(CC) $(CFLAGS) -c trace.c
@@ -89,7 +101,7 @@ maze_demo: $(maze_demo_objs)
 
 
 # Executable Names
-executable_names := trace trace_ptr fib fib_memo maze maze_demo
+executable_names := void_recast trace trace_ptr fib fib_memo maze maze_demo
 
 # Make all
 all: $(executable_names)
