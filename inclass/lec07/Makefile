@@ -64,11 +64,94 @@ stat_reg_time:
 	gcc stat_reg_time.c -o stat_reg_time
 	./stat_reg_time
 
-# Make all
+
+# Create the Line 1 Object
+line1_ex.o: line1_ex.c
+	$(CC) $(CFLAGS) -c line1_ex.c
+
+# Line 1 Objects
+line1_ex_objs := line1_ex.o
+
+# Line 1 Run Time Executable
+line1_ex: $(line1_ex_objs)
+	$(CC) $(CFLAGS) -o line1_ex $(line1_ex_objs)
+	./line1_ex
+
+
+# Create the Line 2 Object
+line2_ex.o: line2_ex.c
+	$(CC) $(CFLAGS) -c line2_ex.c
+
+# Line 2 Objects
+line2_ex_objs := line2_ex.o
+
+# Line 2 Run Time Executable
+line2_ex: $(line2_ex_objs)
+	$(CC) $(CFLAGS) -o line2_ex $(line2_ex_objs)
+	./line2_ex
+
+# Create the Line 3 Object
+line3_ex.o: line3_ex.c
+	$(CC) $(CFLAGS) -c line3_ex.c
+
+# Line 3 Objects
+line3_ex_objs := line3_ex.o
+
+# Line 3 Run Time Executable
+line3_ex: $(line3_ex_objs)
+	$(CC) $(CFLAGS) -o line3_ex $(line3_ex_objs)
+	./line3_ex
+
+
+# STUDENT - Create the Line 1 Object
+line1.o: line1.c
+	$(CC) $(CFLAGS) -c line1.c
+
+# STUDENT - Line 1 Objects
+line1_objs := line1.o
+
+# STUDENT - Line 1 Run Time Executable
+line1: $(line1_objs)
+	$(CC) $(CFLAGS) -o line1 $(line1_objs)
+	./line1
+
+
+# STUDENT - Create the Line 2 Object
+line2.o: line2.c
+	$(CC) $(CFLAGS) -c line2.c
+
+# STUDENT - Line 2 Objects
+line2_objs := line2.o
+
+# STUDENT - Line 2 Run Time Executable
+line2: $(line2_objs)
+	$(CC) $(CFLAGS) -o line2 $(line2_objs)
+	./line2
+
+# STUDENT - Create the Line 3 Object
+line3.o: line3.c
+	$(CC) $(CFLAGS) -c line3.c
+
+# STUDENT - Line 3 Objects
+line3_objs := line3.o
+
+# STUDENT - Line 3 Run Time Executable
+line3: $(line3_objs)
+	$(CC) $(CFLAGS) -o line3 $(line3_objs)
+	./line3
+
+
+# Make Time Comparisons
 time_comp: clean dyn_array_time_ineff stat_array_time stat_reg_time
 
+# Make Haiku Example
+haiku_ex: clean line1_ex line2_ex line3_ex
+
+# Make Haiku Student
+haiku: clean line1 line2 line3
+
 # Executable Names
-executable_names := stat_dyn_addr stat_dyn_func dyn_array_time stat_array_time stat_reg_time
+executable_names := stat_dyn_addr stat_dyn_func dyn_array_time stat_array_time stat_reg_time line1_ex line2_ex line3_ex line1 line2 line3
 
 # Make all
 all: $(executable_names)
