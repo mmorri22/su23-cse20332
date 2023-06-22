@@ -18,26 +18,26 @@ int main( const int argc, const char* argv[] ){
 
   // Step 2: Statically Allocate a new_struct
   // 1) Statically create the struct
-  // 1) Create an int using atoi
-  // 2) Create a float using atof
-  // 3) Create a double using atof
+  // 2) Create an int using atoi
+  // 3) Create a float using atof - and cast
+  // 4) Create a double using atof
 
 
 
-  // Step 2: Print use fprintf
+  // Step 3: Print use fprintf
   // 1) The address of the address of the static struct on the stack
-  // 2) The value and address of the dynamic struct's long unsigned int
-	// 3) The value and address of the dynamic struct's long unsigned int
+  // 2) The value and address of the dynamic struct's int
+	// 3) The value and address of the dynamic struct's float
 	// 4) The value and address of the dynamic struct's double
 
 
-	// Step 3: Dynamically Allocate a new_struct
+	// Step 4: Dynamically Allocate a NEW_STRUCT
 
 
-	// Step 4: De-reference and set values for the int, long unsigned int, and float
+	// Step 5: De-reference and set values for the int, long unsigned int, and float
 
 
-	// Step 4: Print use fprintf
+	// Step 6: Print use fprintf
 	// 1) The address of the register containing the dynamic struct pointer
   // 2) The address of the address of the dynamic struct pointer on the heap
   // 3) The value and address of the dynamic struct's int
@@ -45,7 +45,7 @@ int main( const int argc, const char* argv[] ){
 	// 5) The value and address of the dynamic struct's double
 
 
-	// Step 5: Free the Dynamically Allocated Memory
+	// Step 7: Free the Dynamically Allocated Memory
 
 
 	return EXIT_SUCCESS;

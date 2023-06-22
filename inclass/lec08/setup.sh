@@ -3,4 +3,7 @@ wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec08
 wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec08/better_malloc_li.c
 wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec08/better_malloc_float.c
 wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec08/better_malloc_double.c
+wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec08/argc_argv.c
+wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec08/argc_argv_mod.c
+wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec08/structs.c
 rm setup.sh
