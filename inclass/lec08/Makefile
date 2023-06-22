@@ -86,8 +86,20 @@ argc_argv_mod: $(argc_argv_mod_objs)
 	$(CC) $(CFLAGS) -o argc_argv_mod $(argc_argv_mod_objs)
 
 
+# Create the Structs Object
+structs.o: structs.c
+	$(CC) $(CFLAGS) -c structs.c
+
+# Structs Objects
+structs_objs := structs.o
+
+# Structs Executable
+structs: $(structs_objs)
+	$(CC) $(CFLAGS) -o structs $(structs_objs)
+
+
 # Executable Names
-executable_names := better_malloc better_malloc_li better_malloc_float better_malloc_double argc_argv argc_argv_mod
+executable_names := better_malloc better_malloc_li better_malloc_float better_malloc_double argc_argv argc_argv_mod structs
 
 # Make all
 all: $(executable_names)
