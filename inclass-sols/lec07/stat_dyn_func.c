@@ -42,6 +42,7 @@ int main( void ){
 
   print_dyn( dyn_arr_len, dyn_int_array );
 
+  int stat_int_array[ELEMENT_SIZE] = {206, 101, -18, 34, 5};
   print_stat( stat_int_array );
 
   /* Step 8 - Free the Dynamic Array */
