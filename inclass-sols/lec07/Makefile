@@ -10,6 +10,18 @@ CC := gcc
 FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror -lm
 CFLAGS := -std=c11 $(FLAGS)
 
+# Create the Void Recast Object
+void_recast.o: void_recast.c
+	$(CC) $(CFLAGS) -c void_recast.c
+
+# Float Compile Objects
+void_recast_objs := void_recast.o
+
+# Float Compile Executable
+void_recast: $(void_recast_objs)
+	$(CC) $(CFLAGS) -o void_recast $(void_recast_objs)
+	valgrind --leak-check=full ./void_recast
+
 # Create the Static Dynamic Address Object
 stat_dyn_addr.o: stat_dyn_addr.c
 	$(CC) $(CFLAGS) -c stat_dyn_addr.c
@@ -151,7 +163,7 @@ haiku_ex: clean line1_ex line2_ex line3_ex
 haiku: clean line1 line2 line3
 
 # Executable Names
-executable_names := stat_dyn_addr stat_dyn_func dyn_array_time stat_array_time stat_reg_time line1_ex line2_ex line3_ex line1 line2 line3
+executable_names := void_recast stat_dyn_addr stat_dyn_func dyn_array_time stat_array_time stat_reg_time line1_ex line2_ex line3_ex line1 line2 line3
 
 # Make all
 all: $(executable_names)

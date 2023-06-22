@@ -1,7 +1,7 @@
 # Author: Prof. Matthew Morrison
 # E-mail: matt.morrison@nd.edu
 #
-# This is the Makefile for the Lecture 6 Example.
+# This is the Makefile for the Lecture 7 Example.
 
 # gcc is for the compiler for C
 CC := gcc
@@ -10,17 +10,6 @@ CC := gcc
 FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror -lm
 CFLAGS := -std=c11 $(FLAGS)
 
-# Create the Void Recast Object
-void_recast.o: void_recast.c
-	$(CC) $(CFLAGS) -c void_recast.c
-
-# Float Compile Objects
-void_recast_objs := void_recast.o
-
-# Float Compile Executable
-void_recast: $(void_recast_objs)
-	$(CC) $(CFLAGS) -o void_recast $(void_recast_objs)
-	./void_recast
 
 # Create the Trace Object
 trace.o: trace.c

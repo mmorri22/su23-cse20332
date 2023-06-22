@@ -1,5 +1,5 @@
 wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec07/Makefile
-wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec07/stat_dyn_comp.c
+wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec07/stat_dyn_addr.c
 wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec07/dyn_array_time.c
 wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec07/void_recast.c
 wget https://raw.githubusercontent.com/mmorri22/su23-cse20332/main/inclass/lec07/line1.c

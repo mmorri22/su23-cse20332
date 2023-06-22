@@ -26,7 +26,7 @@ int main()
   }
 
 
-  fprintf(stdout, "%d\n", *( (int *)(void_array) ) );
+  fprintf(stdout, "%d %x\n", *( (int *)(void_array) ), *( (int *)(void_array) ) );
 
   free(void_array);
 
